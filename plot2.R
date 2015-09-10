@@ -15,8 +15,8 @@ data <- filter(data,as.character(Date) %in% c("1/2/2007","2/2/2007"))
 # covert time and date to single field
 data$DateTime <- strptime(paste(as.character(data$Date),as.character(data$Time)),format="%d/%m/%Y %H:%M:%S")
 
-# Plot1 is a frequency plot of the
-png(filename = "plot1.png",width = 480,height = 480)
-hist(data$Global_active_power,breaks=16,col = "red",xlab = "Global Active Power (Kilowatts)",main="Global Active Power") 
+# Plot2 is a line plot
+png(filename = "plot2.png",width = 480,height = 480)
+plot(x=data$DateTime,y=data$Global_active_power,type="line",ylab = "Global Active Power (Kilowatts)",xlab="")
 dev.off()
 
